@@ -3,6 +3,19 @@ import 'dart:async';
 import 'dart:io' as io;
 
 main() {
+  var controller = StreamController.broadcast(
+    onListen: () => print('listening'),
+    onCancel: () => print('cancelled'),
+  );
+  var sub1 = controller.stream.listen(print);
+  var sub2 = controller.stream.listen(print);
+  controller.sink.add('asdfasdfasdf');
+  Future(() => controller.sink.add('hello from the future!'));
+
+  sub1.cancel();
+  Future(() => sub2.cancel());
+  // tappitytap();
+
   // var counter = hunnieCounter();
   // var evenCounter = counter.where((event) => event.isEven);
   // await for (var item in evenCounter) {
@@ -15,18 +28,6 @@ main() {
 
   // controller.forEach(print);
   // controller.listen(print);
-}
-
-Stream tappitytap() {
-  io.stdin.echoMode = false;
-  var input;
-  while (input != 32) {
-    // leave program with [Space][Enter]
-    input = io.stdin.readByteSync();
-    if (input != 10) print(input); // ignore [Enter]
-  }
-  print('leaving!');
-  io.stdin.echoMode = true;
 }
 
 Stream<int> hunnieCounter() async* {
@@ -114,4 +115,16 @@ Future<int> myAsyncFunction() {
 
 bool testy(error) {
   return error is IntegerDivisionByZeroException ? true : false;
+}
+
+Stream tappitytap() {
+  io.stdin.echoMode = false;
+  var input;
+  while (input != 32) {
+    // leave program with [Space][Enter]
+    input = io.stdin.readByteSync();
+    if (input != 10) print(input); // ignore [Enter]
+  }
+  print('leaving!');
+  io.stdin.echoMode = true;
 }
