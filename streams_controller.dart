@@ -1,11 +1,19 @@
-import 'futures.dart';
-import 'futures_async.dart';
-import 'streams.dart';
-import 'streams_controller.dart';
+import 'dart:async';
 
-main() {
-  // futures();
-  futuresAsync();
-  // streams();
-  // streamsController();
+streamsController() async {
+  var demo = StreamController();
+  demo.sink.add(counter());
+
+  await for (var count in demo.stream) {
+    print(count);
+  }
+}
+
+Stream<int> counter() async* {
+  var a = 0;
+  while (a < 10) {
+    // await Future.delayed(Duration(seconds: 1));
+    yield a++;
+    // yield await Future.delayed(Duration(seconds: 1), () => a++);
+  }
 }
