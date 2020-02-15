@@ -1,9 +1,9 @@
 void futures() {
-  var demo = Future(() => 5);
-  // var demo = Future.value(5);
-  // var demo = Future.sync(() => 5);
-  // var demo = Future.delayed(Duration(seconds: 2), () => 5);
-  // var demo = Future.error(Exception('Oh dang!'));
+  final demo = Future(() => 5);
+  // final demo = Future.value(5);
+  // final demo = Future.sync(() => 5);
+  // final demo = Future.delayed(Duration(seconds: 2), () => 5);
+  // final demo = Future.error(Exception('Oh dang!'));
 
   print(demo);
   // demo.then(print);

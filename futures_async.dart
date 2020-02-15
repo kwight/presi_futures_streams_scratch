@@ -1,11 +1,11 @@
 void futuresAsync() async {
-  // var demo = await Future(() => throw Exception);
+  // final demo = await Future(() => throw Exception);
 
   // print(demo);
 
   try {
-    var demo = await Future(() => 5);
-    // var demo = await Future(() => throw FormatException);
+    final demo = await Future(() => 5);
+    // final demo = await Future(() => throw FormatException);
     print('🎉  $demo');
   } catch (error) {
     print('🔥  $error');

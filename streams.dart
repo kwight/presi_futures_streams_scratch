@@ -1,9 +1,9 @@
 import 'dart:async';
 
-streams() {
-  var demo = counter();
-  // var demo = counter().where((count) => count.isEven);
-  // var demo = counter().first;
+streams() async {
+  final demo = counter();
+  // final demo = counter().where((count) => count.isEven);
+  // final demo = counter().first;
 
   print(demo);
 
@@ -11,7 +11,7 @@ streams() {
   //   print(count);
   // }
 
-  // var sub = demo.listen((count) => print(count), onDone: () => print('✅'));
+  // final sub = demo.listen((count) => print(count), onDone: () => print('✅'));
   // Future.delayed(Duration(seconds: 3), () {
   //   sub.pause();
   //   print('🛑');
