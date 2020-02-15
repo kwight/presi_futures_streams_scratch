@@ -5,7 +5,7 @@ import 'streams_controller.dart';
 
 main() {
   // futures();
-  // futuresAsync();
-  streams();
+  futuresAsync();
+  // streams();
   // streamsController();
 }
