@@ -1,17 +1,19 @@
 import 'dart:async';
+import 'dart:math';
 
 streams() async {
-  final demo = counter();
-  // final demo = counter().where((count) => count.isEven);
-  // final demo = counter().first;
+  final demo = Stream.periodic(Duration(seconds: 1), (index) => '🐨').take(10);
+  // final demo = counter();
+  // final demo = counter().where((animal) => animal == '🐨');
+  // final demo = counter().single;
 
-  print(demo);
+  // print(demo);
 
-  // await for (var count in demo) {
-  //   print(count);
-  // }
+  await for (var animal in demo) {
+    print(animal);
+  }
 
-  // final sub = demo.listen((count) => print(count), onDone: () => print('✅'));
+  // final sub = demo.listen((animal) => print(animal), onDone: () => print('✅'));
   // Future.delayed(Duration(seconds: 3), () {
   //   sub.pause();
   //   print('🛑');
@@ -22,11 +24,11 @@ streams() async {
   // });
 }
 
-Stream<int> counter() async* {
+Stream<String> counter() async* {
   var a = 0;
   while (a < 10) {
-    await Future.delayed(Duration(seconds: 1));
-    yield a++;
-    // yield await Future.delayed(Duration(seconds: 1), () => a++);
+    // await Future.delayed(Duration(seconds: 1));
+    yield Random().nextBool() ? '🦘' : '🐨';
+    a++;
   }
 }
