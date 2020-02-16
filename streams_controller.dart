@@ -1,12 +1,27 @@
 import 'dart:async';
 
-streamsController() async {
-  var demo = StreamController();
-  demo.sink.add(counter());
+streamsController() {
+  final demo = StreamController();
+  // final demo = StreamController.broadcast();
 
-  await for (var count in demo.stream) {
-    print(count);
-  }
+  demo.stream.listen(
+    (count) => print('🦄  $count'),
+    onError: (error) => print('🦄  🔥'),
+    cancelOnError: true,
+    onDone: () => print('🦄  ✅'),
+  );
+  // demo.stream.listen(
+  //   (count) => print('🐲  $count'),
+  //   onError: (error) => print('🐲  🔥'),
+  //   onDone: () => print('🐲  ✅'),
+  // );
+
+  demo.sink.add(5);
+  demo.sink.add(Object());
+  // demo.sink.addError('WAT');
+  // await demo.sink.addStream(counter());
+
+  demo.close();
 }
 
 Stream<int> counter() async* {
