@@ -28,7 +28,7 @@ Stream<String> counter() async* {
   var a = 0;
   while (a < 10) {
     // await Future.delayed(Duration(seconds: 1));
-    yield Random().nextBool() ? '🦘' : '🐨';
+    yield Random().nextBool() ? '🐶' : '🐨';
     a++;
   }
 }

@@ -5,15 +5,15 @@ streamsController() {
   // final demo = StreamController.broadcast();
 
   demo.stream.listen(
-    (count) => print('🦄  $count'),
-    onError: (error) => print('🦄  🔥'),
+    (count) => print('🐨  $count'),
+    onError: (error) => print('🐨  ❌'),
     cancelOnError: true,
-    onDone: () => print('🦄  ✅'),
+    onDone: () => print('🐨  ✅'),
   );
   // demo.stream.listen(
-  //   (count) => print('🐲  $count'),
-  //   onError: (error) => print('🐲  🔥'),
-  //   onDone: () => print('🐲  ✅'),
+  //   (count) => print('🐶  $count'),
+  //   onError: (error) => print('🐶  ❌'),
+  //   onDone: () => print('🐶  ✅'),
   // );
 
   demo.sink.add(5);
