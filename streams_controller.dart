@@ -1,6 +1,6 @@
 import 'dart:async';
 
-streamsController() {
+streamsController() async {
   final demo = StreamController();
   // final demo = StreamController.broadcast();
 
@@ -16,8 +16,8 @@ streamsController() {
   //   onDone: () => print('🐶  ✅'),
   // );
 
-  demo.sink.add(5);
-  demo.sink.add(Object());
+  // demo.sink.add(5);
+  // demo.sink.add(Object());
   // demo.sink.addError('WAT');
   // await demo.sink.addStream(counter());
 

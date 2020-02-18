@@ -1,15 +1,16 @@
-void futuresAsync() async {
-  // final demo = await Future(() => throw Exception);
+Future<void> futuresAsync() async {
+  var demo = await Future(() => 5);
+  demo++;
+  print(demo);
 
-  // print(demo);
-
-  try {
-    final demo = await Future(() => 5);
-    // final demo = await Future(() => throw FormatException);
-    print('🎉  $demo');
-  } catch (error) {
-    print('🔥  $error');
-  } finally {
-    print('✅  Complete!');
-  }
+  // try {
+  //   // var demo = await Future(() => 5);
+  //   var demo = await Future(() => throw Exception);
+  //   demo++;
+  //   print('🎉  $demo');
+  // } catch (error) {
+  //   print('🔥  $error');
+  // } finally {
+  //   print('✅  Complete!');
+  // }
 }

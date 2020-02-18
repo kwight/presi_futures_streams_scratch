@@ -11,8 +11,6 @@ void futures() {
   //     .then((value) => print('🎉 $value'))
   //     .catchError((value) => print('🔥 $value'))
   //     .whenComplete(() => print('✅ Complete!'));
-}
 
-outputSuccess(value) {
-  print(value);
+  // print('end of futures() function');
 }
